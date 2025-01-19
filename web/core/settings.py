@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django_extensions',
     
     # Приложения
+    'web.apps.telegram_users',
+    'web.apps.chats'
 ]
 
 MIDDLEWARE = [
@@ -64,12 +66,8 @@ WSGI_APPLICATION = 'web.core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT', 5432),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -105,5 +103,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Настройки бота
 BOT_TOKEN = os.getenv('BOT_TOKEN')
+BOT_USERNAME = os.getenv('BOT_USERNAME')
+BOT_LINK = f'https://t.me/{BOT_USERNAME}'
+MAX_MESSAGE_PER_SECOND = int(os.getenv('MAX_MESSAGE_PER_SECOND', 1))
+
+ADMIN_ACCOUNT_LINK = os.getenv('ADMIN_ACCOUNT_LINK')
+
 TELEGRAM_API_URL = 'https://api.telegram.org'
