@@ -1,7 +1,7 @@
-from django.apps import AppConfig
+п»їfrom django.apps import AppConfig
 
 
 class TelegramUsersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'web.apps.telegram_users'
-    verbose_name = 'Управление telegram пользователями'
+    verbose_name = 'РЈРїСЂР°РІР»РµРЅРёРµ telegram РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё'
