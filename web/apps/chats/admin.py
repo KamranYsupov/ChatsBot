@@ -10,3 +10,5 @@ class ChatAdmin(admin.ModelAdmin):
         'link', 
     )
     
+    filter_horizontal = ('members', )
+    
